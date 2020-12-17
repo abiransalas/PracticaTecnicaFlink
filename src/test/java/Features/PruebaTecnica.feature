@@ -1,7 +1,7 @@
 Feature: Prueba Tecnica
   Scenario Outline: Shopping
 
-    Given the user login in <page> with the <user> and <password>
+    Given the user login in <page> with the <user> and <password> on <navigator>
     When the user add product to cart Suace Labs Backpack y Sauce Labs Fleece Jacket
     And go to cart
     And validate the products
@@ -12,5 +12,5 @@ Feature: Prueba Tecnica
     Then the user clicks finish
     And assert the message
     Examples:
-      | page | user | password | name | lastname |
-      |https://www.saucedemo.com/|standard_user|secret_sauce|Abiran|Salas|
+      | page | user |navigator| password | name | lastname |
+      |https://www.saucedemo.com/|standard_user|Chrome|secret_sauce|Abiran|Salas|

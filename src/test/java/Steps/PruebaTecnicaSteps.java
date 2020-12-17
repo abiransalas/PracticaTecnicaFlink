@@ -16,9 +16,9 @@ public class PruebaTecnicaSteps {
     CheckoutPage checkoutPage;
     OverviewPage overviewPage;
 
-    @Given("the user login in (.*) with the (.*) and (.*)")
-    public void userLoginInPageWithTheUserAndPassword(String page, String user, String password){
-        driver = WebDriverFactory.Browser("Chrome", page);
+    @Given("the user login in (.*) with the (.*) and (.*) on (.*)")
+    public void userLoginInPageWithTheUserAndPassword(String page, String user, String password, String navigator){
+        driver = WebDriverFactory.Browser(navigator, page);
         loginPage = new LoginPage(driver);
         loginPage.logIn(user, password);
     }
