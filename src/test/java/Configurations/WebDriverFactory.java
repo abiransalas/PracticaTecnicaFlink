@@ -1,5 +1,6 @@
 package Configurations;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -31,19 +32,19 @@ public class WebDriverFactory {
     }
 
     private static WebDriver EdgeDriver(){
-        System.setProperty("webdriver.edge.driver", "Resources/Drivers/msedgedriver.exe");
+        WebDriverManager.edgedriver().setup();
         return new EdgeDriver();
     }
 
     private static WebDriver ChromeDriver(){
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--kiosk");
-        System.setProperty("webdriver.chrome.driver", "src/test/java/Resources/Drivers/chromedriver.exe");
         return new ChromeDriver(options);
     }
 
     private static WebDriver FirefoxDriver(){
-        System.setProperty("webdriver.firefox.driver", "Resources/Drivers/geckodriver.exe");
+        WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver();
     }
 }
